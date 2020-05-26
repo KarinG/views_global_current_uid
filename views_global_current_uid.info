@@ -6,3 +6,4 @@ core = 7.x
 dependencies[] = ctools
 
 files[] = views/handlers/views_global_current_uid_handler_field_uid.inc
+files[] = views/handlers/views_global_current_uid_handler_field_crm_id.inc
