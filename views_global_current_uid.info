@@ -1,0 +1,8 @@
+name = Views Global Current UID
+description = Add views global custom field containing current user uid.
+package = Views
+core = 7.x
+
+dependencies[] = ctools
+
+files[] = views/handlers/views_global_current_uid_handler_field_uid.inc

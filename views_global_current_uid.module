@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Views Global Current UID module.
+ *
+ * Adds views global text field containing uid for current user.
+*/
+
+function views_global_current_uid_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'views_global_current_uid') . '/views',
+  );
+}
