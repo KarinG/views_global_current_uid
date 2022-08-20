@@ -2,38 +2,7 @@
 
 /**
  * @file
- * Views Global Current UID module.
+ * Views Global Current User ID module.
  *
- * Adds views global text field containing uid for current user.
+ * Adds views global text field containing ID for current user.
 */
-
-function views_global_current_uid_views_api() {
-  return array(
-    'api' => 3,
-    'path' => drupal_get_path('module', 'views_global_current_uid') . '/views',
-  );
-}
- 
-/**
- * Get CiviCRM contact id from current user uid.
-*/
-function views_global_current_uid_get_civicrm_id() {
-  global $user;
-
-  $contact_id = 0;
-
-  civicrm_initialize();
-
-  try {
-    $result = civicrm_api3('UFMatch', 'get', [ 'sequential' => 1, 'uf_id' => $user->uid, 'return' => ['contact_id'] ]);
-  }
-  catch (CiviCRM_API3_Exception $e) {
-    watchdog_exception('views_global_current_uid', $e);
-  }
-
-  if (!empty($result['values'][0]['contact_id'])) {
-    $contact_id = $result['values'][0]['contact_id'];
-  }
-
-  return $contact_id;
-}

@@ -1,9 +1,7 @@
-name = Views Global Current UID
-description = Add views global custom field containing current user uid.
-package = Views
-core = 7.x
-
-dependencies[] = ctools
-
-files[] = views/handlers/views_global_current_uid_handler_field_uid.inc
-files[] = views/handlers/views_global_current_uid_handler_field_crm_id.inc
+name: Views Global Current User ID
+type: module
+description: Add current user ID as a views field.
+package: Views
+core_version_requirement: ^8 || ^9
+dependencies:
+  - views

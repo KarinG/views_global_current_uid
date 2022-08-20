@@ -2,22 +2,22 @@
 
 function views_global_current_uid_views_data_alter(&$data) {
 
-  $data['views']['nothing_uid'] = array(
-    'title' => t('Current user UID'),
-    'help' => t('Provide current UID.'),
+  $data['views']['nothing_user_id'] = [
+    'title' => t('Current user ID'),
+    'help' => t('Provide current user ID.'),
     'field' => array(
-      'handler' => 'views_global_current_uid_handler_field_uid',
+      'id' => 'views_global_current_user_id',
     ),
-  );
+  ];
 
-  if (function_exists('civicrm_initialize')) {
-
-    $data['views']['nothing_civicrm_cid'] = array(
-      'title' => t('Current user CiviCRM Contact ID'),
+	$moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('civicrm_entity')) {
+    $data['views']['nothing_civicrm_contact_id'] = [
+      'title' => t('Current user\'s CiviCRM Contact ID'),
       'help' => t('Provide current CiviCRM Contact ID.'),
       'field' => array(
-        'handler' => 'views_global_current_uid_handler_field_crm_id',
+        'id' => 'views_global_current_civicrm_contact_id',
       ),
-    );
+    ];
   }
 }
